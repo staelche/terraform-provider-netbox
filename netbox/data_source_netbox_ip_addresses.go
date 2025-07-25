@@ -175,6 +175,8 @@ func dataSourceNetboxIPAddressesRead(d *schema.ResourceData, m interface{}) erro
 			case "tag":
 				tags = append(tags, vString)
 				params.Tag = tags
+			case "id":
+				params.ID = &vString
 			default:
 				return fmt.Errorf("'%s' is not a supported filter parameter", k)
 			}
